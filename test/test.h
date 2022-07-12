@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <stdalign.h>
 #include <signal.h>
-#include <stdatomic.h>
 #include <errno.h>
 #include <stdbool.h>
 #include <stdlib.h>
@@ -57,7 +56,6 @@ typedef struct {
 
 typedef enum { TEST_TYPE_CHECK, TEST_TYPE_REQUIRE } Test_Check_Type;
 
-// sig_atomic_t __signal_status__;
 Unit_Test* __unit_test__ = NULL;
 
 static void __test_on_fatal_error__(Unit_Test* self, int signal_number);
