@@ -25,7 +25,7 @@ int main(int argc, const char **argv)
     test_run(&unit_test);
 }
 
-void test_write(Unit_Test* test)
+void (__cdecl *)test_write(Unit_Test* test)
 {
     const char* out_file_relative_path = "/input/file-out.txt";
     char* out_file_path = path_concat(tests_path, out_file_relative_path, "");
@@ -39,7 +39,7 @@ void test_write(Unit_Test* test)
     free(out_file_path);
 }
 
-void test_writelines(Unit_Test* test)
+void (__cdecl *)test_writelines(Unit_Test* test)
 {
     const char* out_file_relative_path = "/input/file_lines-out.txt";
     char* out_file_path = path_concat(tests_path, out_file_relative_path, "");
@@ -57,7 +57,7 @@ void test_writelines(Unit_Test* test)
     free(out_file_path);
 }
 
-void test_read(Unit_Test* test)
+void (__cdecl *)test_read(Unit_Test* test)
 {
     const char* in_file_relative_path = "/input/file1.txt";
     char* in_file_path = path_concat(tests_path, in_file_relative_path, "");
@@ -73,7 +73,7 @@ void test_read(Unit_Test* test)
     free(in_file_path);
 }
 
-void test_readline(Unit_Test* test)
+void (__cdecl *)test_readline(Unit_Test* test)
 {
     const char* in_file_relative_path = "/input/file1.txt";
     char* in_file_path = path_concat(tests_path, in_file_relative_path, "");
@@ -90,7 +90,7 @@ void test_readline(Unit_Test* test)
     free(in_file_path);
 }
 
-void test_readlines(Unit_Test* test)
+void (__cdecl *)test_readlines(Unit_Test* test)
 {
     const char* in_file_relative_path = "/input/file1.txt";
     char* in_file_path = path_concat(tests_path, in_file_relative_path, "");
@@ -116,12 +116,12 @@ void test_readlines(Unit_Test* test)
     free(buf_data);
 }
 
-void test_seek(Unit_Test* test)
+void (__cdecl *)test_seek(Unit_Test* test)
 {
 
 }
 
-void test_utf8(Unit_Test* test)
+void (__cdecl *)test_utf8(Unit_Test* test)
 {
 
 }
