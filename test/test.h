@@ -9,6 +9,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef _WIN32
+#include <malloc.h>
+#endif // _WIN32
+
 #ifndef o_fprintf
 #include <stdio.h>
 #define o_fprintf fprintf
@@ -87,7 +91,12 @@ test_init(size_t max_test_cases, int argc, const char** argv)
 {
     Unit_Test unit_test = {
         .max_test_cases_num = max_test_cases,
+#ifdef _WIN32
+        .test_cases = _aligned_malloc(alignof(Test_Case), sizeof(Test_Case) * max_test_cases)
+#else
         .test_cases = aligned_alloc(alignof(Test_Case), sizeof(Test_Case) * max_test_cases)
+#endif // _WIN32
+        // .test_cases = malloc(sizeof(Test_Case) * max_test_cases)
     };
 
     if(argc > 1)

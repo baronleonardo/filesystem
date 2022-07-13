@@ -45,7 +45,7 @@ void test_writelines(Unit_Test* test)
     char* out_file_path = path_concat(tests_path, out_file_relative_path, "");
 
     File file = fs_open(out_file_path, "w", "C.UTF-8");
-    size_t buf_len = 3;
+    enum { buf_len = 3 };
     char* buf[] = {
         "Dega",
         "ديجة",
@@ -64,7 +64,7 @@ void test_read(Unit_Test* test)
     puts(in_file_path);
 
     File file = fs_open(in_file_path, "r", "C.UTF-8");
-    const int buf_size = 100;
+    enum { buf_size = 100 };
     char buf[buf_size];
     size_t read_size = fs_read(&file, buf, buf_size);
     puts(buf);
@@ -80,7 +80,7 @@ void test_readline(Unit_Test* test)
     puts(in_file_path);
 
     File file = fs_open(in_file_path, "r", "C.utf-8");
-    const int buf_size = 100;
+    enum { buf_size = 100 };
     char buf[buf_size];
     size_t read_size = fs_readline(&file, buf, buf_size, "\n");
     read_size = fs_readline(&file, buf, buf_size, "\n");
@@ -97,7 +97,7 @@ void test_readlines(Unit_Test* test)
     puts(in_file_path);
 
     File file = fs_open(in_file_path, "r", "C.utf-8");
-    const int32_t buf_size = 100;
+    enum { buf_size = 100 };
     const int32_t lines_num = 4;
     char* buf_data = malloc(lines_num * buf_size);
     char* buf[lines_num];

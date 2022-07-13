@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 project(filesystem C)
-set(C_STANDARD_REQUIRED 17)
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 
 option(static "enable static building" OFF)
 option(tests  "enable tests" OFF)
